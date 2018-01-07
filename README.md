@@ -117,3 +117,57 @@ const server = app.listen(3000, () => {
 ```
 
 ## Express Routing
+
+1. Create Routes folder , index.js, speaker.js
+
+2. move index route to index js and speaker routes to speaker.js
+
+3. need to add app.use to use the routes from the application with require and the route path.
+
+```javascript
+app.use(require('./routes/index'));
+app.use(require('./routes/speakers'));
+```
+3. index.js require express and express router because we are using the router object of the express library so we can work with external routes.
+
+```javascript
+const express = require('express');
+const router = express.Router();
+```
+
+4. amend app.get to router.get
+```javascript
+router.get('/', function(req,res) {
+
+  res.send(
+    `<h1>Welcome</h1>
+    <p>Roux Academy Meetups put together arties from all walks of life</p>
+    `);
+});
+```
+4. in index, we need to export the router so app.js can have access to all the routes
+
+```javascript
+module.exports = router;
+```
+
+repeat steps for speakers - add express, router, module exports and change app to router.
+
+*creating access to data.json file*
+
+5. app.js-  add app.set to have a certain variable available to our entire app.
+
+```javascript
+app.set('appData', dataFile);
+```
+
+6. speakers.js -
+the app info will be available through the request which will have our data.
+
+create a new local variable, look for app info then get this variable appData the data file which is required already in the application(json file)
+
+```javascript
+  var dataFile = req.app.get('appData');
+```
+
+add it to both routes in speakers
