@@ -107,7 +107,7 @@ app.get('/', function(req,res) {
 });
 ```
 
-4. ask the server to listen, which port and a callback to listen 
+4. ask the server to listen, which port and a callback to listen
 
 
 ```javascript
@@ -115,3 +115,5 @@ const server = app.listen(3000, () => {
   console.log('Listening on port 3000');
 })
 ```
+
+## Express Routing
