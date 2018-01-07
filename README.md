@@ -79,3 +79,39 @@ console.log('go to http://localhost:3000 on your browser');
 
 
 ## Simple server with Express
+
+install Express
+
+```
+yarn add express
+```
+
+1. require express
+2. create an express instance (because most of the functionality is stored instead an express function)
+
+*advantages*
+*no need to worry about mime types ie text/html*
+
+```javascript
+const express = require('express');
+const app = express();
+```
+
+3. use HTTP verbs then specific route or location then execute a function of req/res
+
+send a response because express looks after the request for us
+
+```javascript
+app.get('/', function(req,res) {
+  res.send('<h1>Roux Academy meetups</h1>');
+});
+```
+
+4. ask the server to listen, which port and a callback to listen 
+
+
+```javascript
+const server = app.listen(3000, () => {
+  console.log('Listening on port 3000');
+})
+```
